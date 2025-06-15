@@ -5,12 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Corridas em Parauapebas-PA</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .mensagem-sucesso {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
+      background-color: #e6ffe6;
+      border: 1px solid #8bc34a;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
 
 <header>
   <h1>Corridas em Parauapebas</h1>
-  <p>•	Reunindo pessoas locais incentivando a prática esportiva, interação social, Bem estar físico e criação de novas amizades através das corridas organizadas.</p>
+  <p>• Reunindo pessoas locais incentivando a prática esportiva, interação social, Bem estar físico e criação de novas amizades através das corridas organizadas.</p>
 </header>
 
 <nav>
@@ -30,7 +42,6 @@
       <p><strong>Horário:</strong> 7h da manhã</p>
       <p><strong>Ponto de Encontro:</strong> Ginásio Poliesportivo</p>
     </div>
-    
   </section>
 
   <section id="mapa">
@@ -47,7 +58,7 @@
 
   <section id="inscricao">
     <h2>📝 Inscreva-se</h2>
-    <form action="#" method="post">
+    <form id="form-inscricao">
       <label for="nome">Nome Completo:</label>
       <input type="text" id="nome" name="nome" required />
 
@@ -68,6 +79,10 @@
 
       <button type="submit">Enviar Inscrição</button>
     </form>
+
+    <div class="mensagem-sucesso" id="mensagem-sucesso">
+      ✅ Inscrição realizada com sucesso!
+    </div>
   </section>
 
   <section id="contato">
@@ -83,6 +98,17 @@
 <footer>
   &copy; 2025 Corridas Parauapebas. Todos os direitos reservados.
 </footer>
+
+<script>
+  const form = document.getElementById('form-inscricao');
+  const mensagem = document.getElementById('mensagem-sucesso');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Impede envio para o servidor
+    form.reset(); // Limpa o formulário
+    mensagem.style.display = 'block'; // Exibe a mensagem
+  });
+</script>
 
 </body>
 </html>
